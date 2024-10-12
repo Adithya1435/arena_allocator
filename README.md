@@ -15,7 +15,7 @@ The memory region is divided into blocks and each block is a struct with differe
 
 **init_heap():**
 This function is used to get a region of memory (64KB) using the syscall mmap().
-[!man_mmap](assets/mmap.png)
+![man_mmap](assets/mmap.png)
 
 The return value of the mmap is a pointer in the virtual address space of this program which points to the start of the address our memory region which our mmap has assigned to us.
 
@@ -61,18 +61,18 @@ Otherwise:
 ## Working and Output
 
 **Output**
-[!output](assets/output.png)
+![output](assets/output.png)
 
 **Working**
 To check if the allocate() actually uses heap to allocate memory. For that I used GNU Debugger (gdb) to check that.
 
-[!main_diss](assets/main_diss.png)
+![main_diss](assets/main_diss.png)
 
 Let me set two breakpoints at \*main+8 and \*main+62
 
 I will view the proc mappings at breakpoint 1 and breakpoint 2.
-[!proc_b1](assets/proc_b1.png)
-[!proc_b2](assets/proc_b2.png)
+![proc_b1](assets/proc_b1.png)
+![proc_b2](assets/proc_b2.png)
 
 We can see that new section \[heap\] is added in the mappings after we call that allocate() function!
 So we can confirm that it is indeed allocated in heap.
